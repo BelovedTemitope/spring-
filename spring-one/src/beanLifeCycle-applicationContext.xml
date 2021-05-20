@@ -26,7 +26,8 @@
     
     <bean id ="myCoach"
     	class="com.spring.springdapp.TrackCoach"
-    	scope="prototype">
+    	init-method="doMyStartupStuff"
+    	destroy-method="doMyCleanupStuffYoyo">
     	
     	<!-- set up constructor injection -->
     <constructor-arg ref="myFortune" />
