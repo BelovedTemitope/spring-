@@ -17,8 +17,6 @@
 	 <property name="printedLoggerLevel" value="FINER"/>
 	 </bean>
 	
-	<!-- load the properties file -->
-	<context:property-placeholder location="classpath:sport.properties"/>
     <!-- Define your beans here -->
     
     <!-- define the dependency -->
@@ -27,24 +25,13 @@
     </bean>
     
     <bean id ="myCoach"
-    	class="com.spring.springdapp.TrackCoach">
+    	class="com.spring.springdapp.TrackCoach"
+    	scope="prototype">
     	
     	<!-- set up constructor injection -->
     <constructor-arg ref="myFortune" />
     </bean>
     
-    <bean id="myCricketCoach"
-    	class="com.spring.springdapp.CricketCoach">
-    	
-    	<!-- set up our setter injection -->
-    	<property name="fortuneService" ref="myFortune" />
-    	<!-- Spring will call setFortuneService -->
-    	
-    	<!-- inject literal values -->
-    	<property name="emailAddress" value="${foo.email}"/>
-    	<property name="team" value="${foo.team}"/>
-    	
-    </bean>
 </beans>
 
 
